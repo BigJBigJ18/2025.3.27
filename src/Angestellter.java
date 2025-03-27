@@ -5,23 +5,23 @@ public class Angestellter {
 
     public void setGehalt(float gehalt) {
         if(gehalt < 0){
-            System.err.println("wrong.angestellter.setname.input.1");
+            System.err.println("wrong.angestellter.setGehalt.input.1");
             gehalt=10000;
         }
         this.gehalt = gehalt;
     }
 
     public void setAbteilung(String abteilung){
-        if(abteilung.isEmpty()){
-            System.err.println("wrong.angestellter.setname.input.1");
+        if(abteilung==null||abteilung.isEmpty()){
+            System.err.println("wrong.angestellter.setAbteilung.input.1");
             abteilung="HIF";
         }
         this.abteilung = abteilung;
     }
 
     private void setName(String name){
-        if(name.isEmpty()){
-            System.err.println("wrong.angestellter.setname.input.1");
+        if(name==null||name.isEmpty()){
+            System.err.println("wrong.angestellter.setName.input.1");
             name="Martin";
         }
         this.name=name;
@@ -46,10 +46,7 @@ public class Angestellter {
     }
 
     public boolean gleicheAbteilung(Angestellter ang){
-        if(this.abteilung.equals(ang.getAbteilung())){
-            return true;
-        }
-        return false;
+        return this.abteilung.equals(ang.getAbteilung());
     }
 
     public String toString(){
@@ -63,6 +60,6 @@ public class Angestellter {
             }
             if(i+1<namen.length) vorname.append(namen[i]);
         }
-        return "-----------------------------------------------"+"\nVorname: "+vorname+"\nNachname: "+nachname+"\nAbteilung: "+this.abteilung+"\nGehalt: "+this.gehalt+"\n-----------------------------------------------";
+        return "-----------------------------------------------"+"\nVorname: "+vorname+"\nNachname: "+nachname+"\nAbteilung: "+getAbteilung()+"\nGehalt: "+getGehalt()+"\n-----------------------------------------------";
     }
 }
