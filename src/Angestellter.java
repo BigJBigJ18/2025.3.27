@@ -53,6 +53,16 @@ public class Angestellter {
     }
 
     public String toString(){
-        return "-----------------------------------------------"+"\nName: "+this.name+"\n Abteilung: "+this.abteilung+"\nGehalt: "+this.gehalt+"\n-----------------------------------------------";
+        String[] namen = this.name.split(" ");
+        StringBuilder vorname=new StringBuilder();
+        String nachname=namen[namen.length-1];
+        for(int i =0; i<namen.length; i++){
+            if(namen.length==1) {
+                vorname.append(namen[i]);
+                nachname = "[nicht angegeben]";
+            }
+            if(i+1<namen.length) vorname.append(namen[i]);
+        }
+        return "-----------------------------------------------"+"\nVorname: "+vorname+"\nNachname: "+nachname+"\nAbteilung: "+this.abteilung+"\nGehalt: "+this.gehalt+"\n-----------------------------------------------";
     }
 }
