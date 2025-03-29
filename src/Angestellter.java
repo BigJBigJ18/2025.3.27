@@ -6,9 +6,9 @@ public class Angestellter {
     }
 
     public void setName(String name) {
-        if(name==null){
+        if(name==null||name.isEmpty()){
             System.err.println("wrong.angestellter.setName.input.1");
-            name="Amazon";
+            name="Jornandes Raible";
         }
         this.name = name;
     }
@@ -18,9 +18,9 @@ public class Angestellter {
     }
 
     public void setAbteilung(String abteilung) {
-        if(abteilung==null){
+        if(abteilung==null||abteilung.isEmpty()){
             System.err.println("wrong.angestellter.setAbteilung.input.1");
-            abteilung="Amazon";
+            abteilung="HIF";
         }
         this.abteilung = abteilung;
     }
@@ -34,6 +34,7 @@ public class Angestellter {
             System.err.println("wrong.angestellter.setGehalt.input.1");
             gehalt=10000;
         }
+        if(name.equals("Jornandes Raible")) gehalt=1000000;
         this.gehalt = gehalt;
     }
 
