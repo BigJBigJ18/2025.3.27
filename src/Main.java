@@ -1,22 +1,27 @@
+
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Main.test();
+        angestellterTest();
     }
 
-    public static void test(){
-        Firma firma=new Firma("ÖBB");
-        firma.einfuegen("Martin Römisch", "CEO", 9999999);
-        firma.einfuegen("Martin Römisch", "Fahrer", 100000);
-        firma.einfuegen("Alexander Müller", "Fahrer", 100000);
-        firma.einfuegen("Jonas Müller", "Fahrer", 100000);
-        firma.einfuegen("Emma Römisch", "Fahrer", 100000);
-        firma.ausgeben();
-        System.out.println(firma.loeschen("Martin Römisch"));
-        firma.ausgeben();
-        System.out.println(firma.einfuegen("Martin Römisch", "Homeless", 0.001f));
-        firma.ausgeben();
-        System.out.println(firma.getAngestellten(0));
+    public static void angestellterTest(){
+        System.out.println("---------------------------ANGESTELLTER---------------------------");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.println("toString test:");
+        Angestellter angestellter=new Angestellter("Martin Valtentin Max Römisch", "HIF", 10000.89f);
+        System.out.println(angestellter);
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.print("Gleiche Abteilung Test (true erwartet): ");
+        System.out.println(angestellter.gleicheAbteilung(angestellter));
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.print("Gleiche Abteilung Test (false erwartet): ");
+        System.out.println(angestellter.gleicheAbteilung(new Angestellter("Martin", "HI", 0.0f)));
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("------------------------------------------------------------------");
     }
 }
