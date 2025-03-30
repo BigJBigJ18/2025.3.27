@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -29,6 +29,8 @@ public class Main {
     public static void firmaTest() throws InterruptedException {
         System.out.println("---------------------------------------------------------FIRMA----------------------------------------------------------");
         Firma firma=new Firma("Cisco");
+        Angestellter angestellter=new Angestellter("Jojo", "HIF", 0);
+        Angestellter[] fix=new Angestellter[10];
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
         System.out.println("Einfuegen Test: ");
         System.out.println(firma.einfuegen("Martin Römisch", "HIF", 999));
@@ -47,13 +49,25 @@ public class Main {
         System.out.println(firma.loeschen("Martin Römisch"));
         System.out.println(firma.loeschen("")); //Error erwartet
         System.out.println(firma.loeschen(null)); //Error erwartet
-        System.out.println(firma.loeschen("Jornandes Raible"));
         System.out.println(firma.loeschen(" "));
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("Errors (2 erwartet): ");
         Thread.sleep(10);
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
         firma.ausgeben();
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.println("In Abteilung mit (HIF): ");
+        firma.inAbteilungMit(angestellter);
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.println("getAngestellte mit char c=E");
+        System.out.println(Arrays.toString(firma.getAngestellte('E')));
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.println("Verdiener: ");
+        firma.meistVerdiener();
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("------------------------------------------------------------------------------------------------------------------------");
     }
 }
