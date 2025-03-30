@@ -53,10 +53,15 @@ public class Firma {
 
     public Angestellter loeschen(String name){
         int pos=getPosAngestellten(name);
+        if(pos<0){
+            System.err.println("wrong.firma.loeschen.input.1");
+            return null;
+        }
         for(int j=pos; j<anz; j++){
             if(j+1<anz)angestellte[j]=angestellte[j+1];
             else angestellte[j]=null;
         }
+        anz--;
         return angestellte[pos];
     }
 
@@ -157,6 +162,18 @@ public class Firma {
             Angestellter tausch=angestellte[i];
             angestellte[i]=angestellte[highestPos];
             angestellte[highestPos]=tausch;
+        }
+    }
+
+    public void sortGehalt(){
+        for(int i=0; i<anz; i++){
+            for(int j=i; j<anz; j++){
+                if(!(j+1>=anz)){
+                    if(angestellte[j+1].getGehalt()>angestellte[j].getGehalt()) {
+                        angestellte[j] = angestellte[j + 1];
+                    }
+                }
+            }
         }
     }
 }

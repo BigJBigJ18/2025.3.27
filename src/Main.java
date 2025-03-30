@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         angestellterTest();
         firmaTest();
+        Test test=new Test();
+        test.test();
     }
 
     public static void angestellterTest(){
@@ -50,8 +52,8 @@ public class Main {
         System.out.println(firma.loeschen(null)); //Error erwartet
         System.out.println(firma.loeschen(" "));
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("Errors (2 erwartet): ");
-        Thread.sleep(10);
+        System.out.println("Errors (5 erwartet): ");
+        Thread.sleep(15);
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
         firma.ausgeben();
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
@@ -68,9 +70,15 @@ public class Main {
         firma.meistVerdiener();
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
-        System.out.println("Sort: ");
+        System.out.println("Sort Alphabetisch: ");
         firma.ausgeben();
         firma.sortAlphabetisch();
+        firma.ausgeben();
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.println("Sort Gehalt: ");
+        firma.ausgeben();
+        firma.sortGehalt();
         firma.ausgeben();
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("------------------------------------------------------------------------------------------------------------------------");
