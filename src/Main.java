@@ -30,7 +30,6 @@ public class Main {
         System.out.println("---------------------------------------------------------FIRMA----------------------------------------------------------");
         Firma firma=new Firma("Cisco");
         Angestellter angestellter=new Angestellter("Jojo", "HIF", 0);
-        Angestellter[] fix=new Angestellter[10];
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
         System.out.println("Einfuegen Test: ");
         System.out.println(firma.einfuegen("Martin Römisch", "HIF", 999));
@@ -67,6 +66,12 @@ public class Main {
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
         System.out.println("Verdiener: ");
         firma.meistVerdiener();
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
+        System.out.println("Sort: ");
+        firma.ausgeben();
+        firma.sortAlphabetisch();
+        firma.ausgeben();
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("------------------------------------------------------------------------------------------------------------------------");
     }

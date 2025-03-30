@@ -40,6 +40,10 @@ public class Firma {
     }
 
     private int getPosAngestellten(String name){
+        if(name==null||name.isEmpty()){
+            System.err.println("wrong.firma.getPosAngestellten.input.1");
+            return -1;
+        }
         int ret=-1;
         for(int i=0; i<anz; i++){
             if(angestellte[i].getName().equals(name)){ret=i; break;}
@@ -48,22 +52,12 @@ public class Firma {
     }
 
     public Angestellter loeschen(String name){
-        if(name==null||name.isEmpty()){
-            System.err.println("wrong.firma.loeschen.input.1");
-            return null;
+        int pos=getPosAngestellten(name);
+        for(int j=pos; j<anz; j++){
+            if(j+1<anz)angestellte[j]=angestellte[j+1];
+            else angestellte[j]=null;
         }
-        Angestellter ang=null;
-        for(int i=0; i<anz; i++){
-            if(angestellte[i].getName().equals(name)){
-                ang=angestellte[i];
-                for(int j=i; j<anz; j++){
-                    if(j+1<anz)angestellte[j]=angestellte[j+1];
-                    else angestellte[j]=null;
-                }
-                anz--;
-            }
-        }
-        return ang;
+        return angestellte[pos];
     }
 
     public void inAbteilungMit(Angestellter ang){
@@ -114,44 +108,55 @@ public class Firma {
         }
     }
 
-    public void sortAlphabetisch(){
-        if(anz<=0){
-            System.err.println("wrong.firma.sortAlphabetisch.notExist");
-        }else{
-            char[] high=angestellte[0].getName().toCharArray();
-            int highPos=0;
-            char[] comp;
-            boolean gleich;
-            for(int i=0; i<anz; i++){
-                comp=angestellte[i].getName().toCharArray();
-                int ret=vergleich(high, comp);
-                if(ret<0){
-                    char[] highAbteil=angestellte[highPos].getAbteilung().toCharArray();
-                    char[] compAbteil=angestellte[i].getAbteilung().toCharArray();
-                    int ret2=vergleich(highAbteil, compAbteil);
+    public void sortAlphabetisch() {
+        char[] highest;
+        char[] vergleich;
+
+        for(int i=0; i<anz; i++){
+            highest=angestellte[i].getName().toCharArray();
+            int highestPos=i;
+
+            //Jeden Namen Vergleichen
+            for(int j=i; j<anz; j++){
+                vergleich=angestellte[j].getName().toCharArray();
+                boolean gleich=true; //Ob die beiden Namen gleich sind
+
+
+                for(int k=0; k<highest.length&&k<vergleich.length; k++){
+                    if(highest[k]>vergleich[k]){
+                        highestPos=j;
+                        highest=vergleich;
+                        gleich=false;
+                        break;
+                    }
+                    if(highest[k]<vergleich[k]){
+                        gleich=false;
+                        break;
+                    }
+                }
+                //Vergleich von Abteilung
+                if(gleich){
+                    char[] highestAbteilung=angestellte[highestPos].getAbteilung().toCharArray();
+                    char[] vergleichAbteilung=angestellte[j].getAbteilung().toCharArray();
+
+                    for(int k=0; k<highestAbteilung.length&&k<vergleichAbteilung.length; k++){
+                        if(highestAbteilung[k]>vergleichAbteilung[k]){
+                            highestPos=j;
+                            highest=vergleich;
+                            break;
+                        }
+                        if(highestAbteilung[k]<vergleichAbteilung[k]){
+                            break;
+                        }
+                    }
                 }
             }
-        }
-    }
-    private static int vergleich(char[] high, char[] comp){
-        for(int j=0; j<comp.length&&j<high.length; j++){
-            if(comp[j]>high[j]){
-                high=comp;
-                highPos=i;
-                gleich=false;
-                break;
-            }else if(comp[j]<high[j]){
-                gleich=false;
-                break;
-            }else if(high.length>comp.length){
-                gleich=false;
-                break;
-            }else if(comp.length>high.length){
-                high=comp;
-                highPos=i;
-                gleich=false;
-                break;
-            }
+
+
+            //Tausch von 2 Elementen (dem Höchsten & dem Ersten)
+            Angestellter tausch=angestellte[i];
+            angestellte[i]=angestellte[highestPos];
+            angestellte[highestPos]=tausch;
         }
     }
 }
