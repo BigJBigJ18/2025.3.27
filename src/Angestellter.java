@@ -20,7 +20,7 @@ public class Angestellter {
     public void setAbteilung(String abteilung) {
         if(abteilung==null||abteilung.isEmpty()){
             System.err.println("wrong.angestellter.setAbteilung.input.1");
-            abteilung="HIF";
+            abteilung="MVP";
         }
         this.abteilung = abteilung;
     }

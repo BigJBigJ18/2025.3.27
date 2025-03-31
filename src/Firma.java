@@ -114,53 +114,26 @@ public class Firma {
     }
 
     public void sortAlphabetisch() {
-        char[] highest;
-        char[] vergleich;
-
-        for(int i=0; i<anz; i++){
-            highest=angestellte[i].getName().toCharArray();
-            int highestPos=i;
-
+        for(int i=1; i<anz; i++){
+            int highestPos=i-1;
             //Jeden Namen Vergleichen
             for(int j=i; j<anz; j++){
-                vergleich=angestellte[j].getName().toCharArray();
                 boolean gleich=true; //Ob die beiden Namen gleich sind
-
-
-                for(int k=0; k<highest.length&&k<vergleich.length; k++){
-                    if(highest[k]>vergleich[k]){
-                        highestPos=j;
-                        highest=vergleich;
-                        gleich=false;
-                        break;
-                    }
-                    if(highest[k]<vergleich[k]){
-                        gleich=false;
-                        break;
-                    }
+                if(angestellte[highestPos].getAbteilung().compareTo(angestellte[j].getAbteilung())>0){
+                    highestPos=j;
+                    gleich=false;
+                } else if (angestellte[highestPos].getAbteilung().compareTo(angestellte[j].getAbteilung())<0) {
+                    gleich=false;
                 }
-                //Vergleich von Abteilung
                 if(gleich){
-                    char[] highestAbteilung=angestellte[highestPos].getAbteilung().toCharArray();
-                    char[] vergleichAbteilung=angestellte[j].getAbteilung().toCharArray();
-
-                    for(int k=0; k<highestAbteilung.length&&k<vergleichAbteilung.length; k++){
-                        if(highestAbteilung[k]>vergleichAbteilung[k]){
-                            highestPos=j;
-                            highest=vergleich;
-                            break;
-                        }
-                        if(highestAbteilung[k]<vergleichAbteilung[k]){
-                            break;
-                        }
+                    if(angestellte[highestPos].getName().compareTo(angestellte[j].getName())>0){
+                        highestPos=j;
                     }
                 }
             }
-
-
             //Tausch von 2 Elementen (dem Höchsten & dem Ersten)
-            Angestellter tausch=angestellte[i];
-            angestellte[i]=angestellte[highestPos];
+            Angestellter tausch=angestellte[i-1];
+            angestellte[i-1]=angestellte[highestPos];
             angestellte[highestPos]=tausch;
         }
     }

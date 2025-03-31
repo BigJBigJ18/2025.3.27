@@ -35,12 +35,13 @@ public class Main {
         System.out.println("∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨");
         System.out.println("Einfuegen Test: ");
         System.out.println(firma.einfuegen("Martin Römisch", "HIF", 999));
-        System.out.println(firma.einfuegen("Martin Römisch", "HIF", 999));  //Error erwartet
+        System.out.println(firma.einfuegen("Martin Römisch", "MVP", 100000));  //Error erwartet
         System.out.println(firma.einfuegen("", "", 999));  //Error erwartet
         System.out.println(firma.einfuegen("", "", 999));  //Error erwartet
         System.out.println(firma.einfuegen("Emma Römisch", "Sekretär", 9999));
-        System.out.println(firma.einfuegen("Paul Römisch", "HIF", 1000));
+        System.out.println(firma.einfuegen("Paul Römisch", "MVP",  100000));
         System.out.println(firma.einfuegen("Anastasia Römisch", "HIF", 999));
+        System.out.println(firma.einfuegen("Dominik Aigner", "MVP", 100000));
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("Errors (6 erwartet): ");
         Thread.sleep(10);   //Damit der Error dazwischen ausgegeben wird
